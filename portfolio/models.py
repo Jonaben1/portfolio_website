@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+
 # Create your models here.
 
 class Project(models.Model):
@@ -13,3 +14,11 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=70)
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    date_submittted = models.DateTimeField(default=datetime.now)
